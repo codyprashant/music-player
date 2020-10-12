@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Music Player Library</title>
+</head>
+
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-lg-4 ">
+                <div class="card">
+                    <div class="card-header font-weight-bolder">
+                        Playlist <span><i class="far fa-plus-square" data-toggle="modal"
+                                data-target="#addPlaylist"></i></span>
+                    </div>
+                    <ul class="list-group list-group-flush" id="playlistSection">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4"  id="songsSection">
+                
+            </div>
+            <div class="col-lg-4" id='SongDetailed'>
+
+            </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row" id="rateCounter" style="display:none;">
+            <div class="col-lg-12 ">
+                <div class="rating"> 
+                    <input type="radio" name="rating" value="5" id="5" onclick='media.feedrating(5)'>
+                    <label for="5">☆</label>
+                    <input type="radio" name="rating" value="4" id="4" onclick='media.feedrating(4)'>
+                    <label for="4">☆</label> 
+                    <input type="radio" name="rating" value="3" id="3" onclick='media.feedrating(3)'>
+                    <label for="3">☆</label> 
+                    <input type="radio" name="rating" value="2" id="2" onclick='media.feedrating(2)'>
+                    <label for="2">☆</label>
+                    <input type="radio" name="rating" value="1" id="1" onclick='media.feedrating(1)'>
+                    <label for="1">☆</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="addPlaylist" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="addPlaylistLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPlaylistLabel">Add Playlist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#"></form>
+                    <div class="input-group flex-nowrap">
+
+                        <input type="text" class="form-control" id="playlistName" placeholder="Playlist Name"
+                            aria-label="playlistName" aria-describedby="playlistName">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Playlist Name</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap mt-3">
+
+                        <input type="text" class="form-control" id="songName" placeholder="Song Name"
+                            aria-label="songName" aria-describedby="songName">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Song Name</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="genre" placeholder="Genre" aria-label="genre"
+                            aria-describedby="genre">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Genre</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="songUrl" placeholder="Song URL" aria-label="songUrl"
+                            aria-describedby="songUrl">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Song URL</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="author" placeholder="Author" aria-label="author"
+                            aria-describedby="author">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Author</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="number" class="form-control" id="rating" placeholder="Rating" aria-label="rating"
+                            min="1" max="5" aria-describedby="rating">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick='media.addNewPlaylist()'>Add Playlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addSong" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="addSongLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSongLabel">Add Song</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#"></form>
+                   
+                    <div class="input-group flex-nowrap mt-3">
+
+                        <input type="text" class="form-control" id="newsongName" placeholder="Song Name"
+                            aria-label="newsongName" aria-describedby="newsongName">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Song Name</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="newgenre" placeholder="Genre" aria-label="newgenre"
+                            aria-describedby="newgenre">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Genre</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="newsongUrl" placeholder="Song URL" aria-label="newsongUrl"
+                            aria-describedby="newsongUrl">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Song URL</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="text" class="form-control" id="newauthor" placeholder="Author" aria-label="newauthor"
+                            aria-describedby="newauthor">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Author</span>
+                        </div>
+                    </div>
+                    <div class="input-group flex-nowrap  mt-3">
+
+                        <input type="number" class="form-control" id="newrating" placeholder="Rating" aria-label="newrating"
+                            min="1" max="5" aria-describedby="newrating">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick='media.addNewSong()'>Add Playlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
