@@ -26,24 +26,15 @@ The following values that are to be updated while using this module. Not all the
 | operationhours           | Mo-Fr-05:30-18:00         | Operational Hours. e.g. Open on Weekdays from 5:30 AM to 6 PM                                                                                                                                                                                                                         |
 | **region**                | us-west-2                          | AWS region                                                                                                                                                                                                                                                             |
 | **databasesSchemas**     | cs-sre-oracle                | Provide database identifier name whose snapshot need to be taken                                                                                                                                                      |
-| **cronExpression**   | ``cron(0 0/1 1/1 * ? *)     ``                     | Cron expression to create snapshots in certain interval
- |
-| **migrate_snapshot**   |  YES / NO   | Flag to allow or deny cross region copy of snapshot
-|
-| **createSnapshotFile**   |  create_snapshot.zip   | Create Snapshot function zipped file name
-|
-| **copySnapshotFile**   |  copy_snapshot.zip   | Copy Snapshot function zipped file name 
-|
-| **sourceRegion**   |  us-west-2   | Region where oracle database exists and  snapshot need to be created
-|
-| **destRegion**   |  us-east-1   | Region where  snapshot  will be copied
-|
-| **kmsKeyId**   | ********   | KMS Key of destination region for rds
-|
-| **snapsToKeep**   |  5   | Number of total snapshots to keep 
-|
-| **lambdaTimeout**   |  900   | Timeout seconds for function execution(maximum seconds is 900(15 mins))
-|
+| **cronExpression**   | ``cron(0 0/1 1/1 * ? *)     ``                     | Cron expression to create snapshots in certain interval |
+| **migrate_snapshot**   |  YES / NO   | Flag to allow or deny cross region copy of snapshot |
+| **createSnapshotFile**   |  create_snapshot.zip   | Create Snapshot function zipped file name|
+| **copySnapshotFile**   |  copy_snapshot.zip   | Copy Snapshot function zipped file name |
+| **sourceRegion**   |  us-west-2   | Region where oracle database exists and  snapshot need to be created|
+| **destRegion**   |  us-east-1   | Region where  snapshot  will be copied|
+| **kmsKeyId**   | ********   | KMS Key of destination region for rds|
+| **snapsToKeep**   |  5   | Number of total snapshots to keep |
+| **lambdaTimeout**   |  900   | Timeout seconds for function execution(maximum seconds is 900(15 mins))|
 
 ### state.tf
 
