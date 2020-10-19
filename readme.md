@@ -43,7 +43,7 @@ The following values that are to be updated while using this module. Not all the
 | **snapsToKeep**   |  5   | Number of total snapshots to keep 
 |
 | **lambdaTimeout**   |  900   | Timeout seconds for function execution(maximum seconds is 900(15 mins))
-
+|
 
 ### state.tf
 
